@@ -1,7 +1,5 @@
-const ADD_POST = "ADD-POST";
-const UPDATE_POST = "UPDATE-POST";
-const ADD_MESSAGE = "ADD-MESSAGE";
-const UPDATE_MESSAGE = "UPDATE-MESSAGE";
+import profileReducer from "./profile-reducer";
+import dialogsReducer from "./dialogs-reducer";
 
 const store = {
     _state: {
@@ -88,50 +86,13 @@ const store = {
         return this._state;
     },
     dispatch(action) {
-        if (action.type === ADD_POST) {
-            const newPost = {
-                id: 5,
-                message: this.state.profilePage.newPostText,
-                likesCount: 0
-            };
-
-            this.state.profilePage.posts.push(newPost);
-            this.state.profilePage.newPostText = "";
-            this._callSubscriber(this.state);
-        }
-        if (action.type === UPDATE_POST) {
-            this.state.profilePage.newPostText = action.newText;
-            this._callSubscriber(this.state);
-        }
-        if (action.type === ADD_MESSAGE) {
-            const newMessage = {
-                id: 6,
-                message: this.state.dialogsPage.body,
-            };
-
-            this.state.dialogsPage.messages.push(newMessage);
-            this.state.dialogsPage.body = "";
-            this._callSubscriber(this.state);
-        }
-        if (action.type === UPDATE_MESSAGE) {
-            this.state.dialogsPage.body = action.newMessage;
-            this._callSubscriber(this.state);
-        }
+        this._state.profilePage = profileReducer(this._state.profilePage, action);
+        this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+        this._callSubscriber(this._state);
     },
     subscribe(observer) {
         this._callSubscriber = observer;
     }
 }
 
-const addPostCreator = () => ({ type: ADD_POST });
-const updatePostTextCreator = text => ({
-    type: UPDATE_POST,
-    newText: text
-});
-const addMessageCreator = () => ({ type: ADD_MESSAGE });
-const updateMessageTextCreator = text => ({
-    type: UPDATE_MESSAGE,
-    newMessage: text
-});
 export default store;
-export { addPostCreator, updatePostTextCreator, addMessageCreator, updateMessageTextCreator }
