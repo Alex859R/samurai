@@ -13,7 +13,7 @@ const store = {
             ],
         },
         dialogsPage: {
-            body: '',
+            newMessage: '',
             dialogs: [
                 {
                     id: 1,
