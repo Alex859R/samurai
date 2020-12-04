@@ -1,0 +1,66 @@
+.users {
+    padding: 30px;
+    min-height: 100vh;
+}
+.users button {
+    display: block;
+    padding: 5px 10px;
+    min-width: 74px;
+    color: white;
+    background-color: #00B285;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #BDC4D2;
+    transition: all .3s ease;
+    cursor: pointer;
+}
+
+.users button:active {
+    transform: scale(0.9);
+}
+
+.users button:hover {
+    background-color: #00BF8F;
+}
+
+.showMore {
+    margin-left: 35%;
+}
+.userCard {
+    display: flex;
+    margin: 0 0 40px 0;
+}
+
+.userCardAvatar {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    min-width: 80px;
+    margin: 0 20px 0 0;
+    min-height: 70px;
+}
+
+.userCardAvatar img {
+    max-width: 50px;
+    max-height: 50px;
+    border-radius: 50%;
+    margin: 0 0 10px 0;
+}
+
+.userCardInfo {
+    display: flex;
+    flex: 1 1 auto;
+    max-width: 400px;
+    border: 1px solid #355DED;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.userInfo {
+    flex-grow: 1;
+    font-size: 1.2rem;
+}
+
+.userInfo > div:first-child {
+    margin-bottom: 10px;
+}

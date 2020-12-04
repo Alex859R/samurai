@@ -5,10 +5,10 @@ import s from './Dialogs.module.css';
 
 const Dialogs = (props) => {
     const dialogsElements = props.dialogs.map(d =>
-        <DialogItem name={ d.name } id={ d.id }/>);
+        <DialogItem name={ d.name } key={ d.id }/>);
 
     const messagesElements = props.messages.map(m =>
-        <Message message={ m.message }/>);
+        <Message key={ m.id } message={ m.message }/>);
 
     const onNewMessageChange = (e) => {
         const message = e.target.value;
