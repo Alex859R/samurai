@@ -1,16 +1,11 @@
 import React from 'react';
 import usersStyle from "./Users.module.css";
+import * as axios from 'axios';
 
 const Users = (props) => {
     if (props.users.length === 0) {
-        props.setUsers([
-            {
-                id: 1, avatar: 'https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg', followed: true, name: "Alex", status: "Hi there! I'm frontend developer", location: { country: 'Russia', city: 'Moscow' }
-            },
-            {
-                id: 2, avatar: 'https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg', followed: false, name: "Marry", status: "I'm frontend developer to", location: { country: 'Ukraine', city: 'Kiev' }
-            }
-        ]);
+        axios.get("https://social-network.samuraijs.com/api/1.0/users")
+            .then(response => console.log(response.data.items))
     }
 
     const userCards = props.users.map(user => {
