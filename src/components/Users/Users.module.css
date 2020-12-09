@@ -2,6 +2,7 @@
     padding: 30px;
     min-height: 100vh;
 }
+
 .users button {
     display: block;
     padding: 5px 10px;
@@ -15,6 +16,21 @@
     cursor: pointer;
 }
 
+.users span {
+    padding: 5px;
+    cursor: pointer;
+    border: 1px solid black;
+    border-radius: 3px;
+    transition: all .5s ease;
+}
+
+.users span:not(:last-child) {
+    margin-right: 10px;
+}
+.users span:hover {
+    box-shadow: 0 0 2px inset;
+}
+
 .users button:active {
     transform: scale(0.9);
 }
@@ -23,9 +39,6 @@
     background-color: #00BF8F;
 }
 
-.showMore {
-    margin-left: 35%;
-}
 .userCard {
     display: flex;
     margin: 0 0 40px 0;
@@ -63,4 +76,17 @@
 
 .userInfo > div:first-child {
     margin-bottom: 10px;
+}
+
+.currentPage {
+    font-weight: bold;
+}
+
+.usersPagination {
+    display: flex;
+    align-items: center;
+    max-width: 300px;
+    min-height: 40px;
+    padding: 5px 0;
+    overflow: hidden;
 }
