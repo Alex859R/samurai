@@ -16,7 +16,7 @@ const Users = (props) => {
                     return (
                         <div className={ usersStyle.userCard } key={ user.id }>
                             <div className={ usersStyle.userCardAvatar }>
-                                <img src={ user?.avatar || avatar } alt="avatar"/>
+                                <img src={ user.photos.small || avatar } alt="avatar"/>
                                 {
                                     user.followed ?
                                         <button onClick={ () => props.unfollow(user.id) }>Unfollow</button>
@@ -43,12 +43,18 @@ const Users = (props) => {
                 })
             }
             <div className={ usersStyle.usersPagination }>
-                { pages.map(page =>
-                    <span key={ page }
-                          className={ props.currentPage === page ? usersStyle.currentPage : "" }
-                          onClick={ () => props.onPageChange(page) }>
-                        { page }
-                    </span>) }
+                {
+                    pages.map(page => {
+                        return (
+                            <span key={ page }
+                                  className={ props.currentPage === page ? usersStyle.currentPage : "" }
+                                  onClick={ () => props.onPageChange(page) }
+                            >
+                                { page }
+                            </span>
+                        )
+                    })
+                }
             </div>
         </div>
     )
