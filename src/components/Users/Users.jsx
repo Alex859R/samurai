@@ -44,9 +44,11 @@ const Users = (props) => {
             }
             <div className={ usersStyle.usersPagination }>
                 { pages.map(page =>
-                    <span key={ page } className={ props.currentPage === page ? usersStyle.currentPage : "" } onClick={ () => {
-                        props.onPageChange(page)
-                    } }>{ page }</span>) }
+                    <span key={ page }
+                          className={ props.currentPage === page ? usersStyle.currentPage : "" }
+                          onClick={ () => props.onPageChange(page) }>
+                        { page }
+                    </span>) }
             </div>
         </div>
     )
